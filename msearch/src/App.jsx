@@ -8,10 +8,10 @@ function App() {
   const [movie, setMovie] = useState(null);
 
   const fetchMovie = async () => {
-    if (tt.trim === "") return;
+    if (tt.trim() === "") return;
 
     const apiKey = "22a8c24e";
-    const url = `https://www.omdbapi.com/?i=tt3896198&$apikey=22a8c24e`;
+    const url = `https://www.omdbapi.com/?i=tt3896198&apikey=22a8c24e`;
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -44,8 +44,8 @@ function App() {
     placeholder='enter a movie tt'
     onChange={(e) => setTt(e.target.value)} 
     value={tt}/>
-    <button onClick={() => fetchMovie}
-      className='rounded bg-yellow-200 p-2 mx-5'>
+    <button onClick={fetchMovie}
+      className='rounded bg-yellow-200 p-2 mx-5 cursor-pointer hover:bg-amber-500'>
       Search
     </button>
 
