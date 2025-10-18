@@ -33,9 +33,9 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-200 to-green-400 p-5">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-green-300 m-10 font-gaba rounded-2xl p-5">
       {/* CARD CONTAINER */}
-      <div className="bg-white w-full max-w-2xl rounded-2xl shadow-lg p-6 md:p-10 text-center">
+      <div className="bg-white w-full max-w-2xl rounded-2xl shadow-amber-900 p-6 md:p-10 text-center">
         
         <h1 className="font-extrabold text-3xl md:text-5xl my-5">
           <span className="text-red-600 underline decoration-wavy decoration-red-600 decoration-4 underline-offset-4">
