@@ -11,7 +11,7 @@ function App() {
     if (tt.trim === "") return;
 
     const apiKey = "22a8c24e";
-    const url = `https://www.omdbapi.com/?i=${tt}3896198&${apikey}=22a8c24e`;
+    const url = `https://www.omdbapi.com/?i=tt3896198&$apikey=22a8c24e`;
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -36,13 +36,16 @@ function App() {
     //   Search movies by tt → show poster, rating, release year.
     //     Learn: debouncing search input + conditional rendering.
 
-  <div >
+  <div className='bg-green-300 m-20 p-20 rounded-xl font-gaba text-center'>
+    <h1 className='font-extrabold text-5xl my-10'> <span class="text-red-600 decoration-wavy underline decoration-red-600 decoration-4 underline-offset-6"> Movie</span>  Search Api</h1>
     <input
     type="text"
+    className='p-2 bg-slate-200 rounded '
     placeholder='enter a movie tt'
     onChange={(e) => setTt(e.target.value)} 
     value={tt}/>
-    <button onClick={() => fetchMovie}>
+    <button onClick={() => fetchMovie}
+      className='rounded bg-yellow-200 p-2 mx-5'>
       Search
     </button>
 
