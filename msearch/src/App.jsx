@@ -4,14 +4,14 @@ import './App.css'
 
 function App() {
 
-  const [title, setTitle] = useState("");
+  const [tt, setTt] = useState("");
   const [movie, setMovie] = useState(null);
 
   const fetchMovie = async () => {
-    if (title.trim === "") return;
+    if (tt.trim === "") return;
 
-    const apiKey = "";
-    const url = "";
+    const apiKey = "22a8c24e";
+    const url = `https://www.omdbapi.com/?i=${tt}3896198&${apikey}=22a8c24e`;
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -28,20 +28,35 @@ function App() {
       console.log(error);
 
     }
-    
-
-    
-
-;
+    setTt("");
   }
 
   return (
     // Movie Search App(OMDb API) **
-    //   Search movies by title → show poster, rating, release year.
+    //   Search movies by tt → show poster, rating, release year.
     //     Learn: debouncing search input + conditional rendering.
 
-  <div>
+  <div >
+    <input
+    type="text"
+    placeholder='enter a movie tt'
+    onChange={(e) => setTt(e.target.value)} 
+    value={tt}/>
+    <button onClick={() => fetchMovie}>
+      Search
+    </button>
 
+    {movie && 
+    (
+      <div className='text-black'>
+        <h3>
+          {movie.Title}
+        </h3>
+        <p>
+          {movie.Director}
+        </p>
+        </div>
+    )}
   </div>
   )
 }
