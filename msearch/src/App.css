@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barriecito&family=Gabarito:wght@400..900&display=swap');
 
 @import "tailwindcss";
+@plugin "daisyui";
 
 @theme{
     --font-barriecito: Barriecito, "sans-serif";

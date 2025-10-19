@@ -37,25 +37,25 @@ function App() {
       {/* CARD CONTAINER */}
       <div className="bg-white w-full max-w-2xl rounded-2xl shadow-amber-900 p-6 md:p-10 text-center">
         
-        <h1 className="font-extrabold text-3xl md:text-5xl my-5">
+        <h1 className="font-extrabold text-3xl md:text-5xl my-5 text-black ">
           <span className="text-red-600 underline decoration-wavy decoration-red-600 decoration-4 underline-offset-4">
-            Movie
-          </span>{' '}
-          Search API
+            Movie 
+          </span> 
+           {''} Search API
         </h1>
 
         {/* INPUT + BUTTON */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6">
           <input
             type="text"
-            className="p-3 w-full md:w-2/3 bg-slate-200 rounded-lg outline-none focus:ring-2 focus:ring-yellow-400 transition"
+            className="p-3 w-full md:w-2/3 bg-slate-800 text-white rounded-lg outline-none focus:ring-2 focus:ring-yellow-400 transition"
             placeholder="Enter a movie title"
             onChange={(e) => setTt(e.target.value)}
             value={tt}
           />
           <button
             onClick={fetchMovie}
-            className="rounded-lg bg-yellow-400 hover:bg-yellow-500 p-3 px-6 font-semibold transition"
+            class="btn btn-outline btn-primary"
           >
             Search
           </button>
@@ -68,6 +68,7 @@ function App() {
             <p className="mt-2 text-lg">🎬 Director: {movie.Director}</p>
             <p>⭐ Rating: {movie.imdbRating}</p>
             <p>📅 Year: {movie.Year}</p>
+            <p className='text-black-600 bg-green-300 p-2 rounded-xl px-5 font-bold '> Actors: {movie.Actors} </p>
             <img
               src={movie.Poster}
               alt={movie.Title}
