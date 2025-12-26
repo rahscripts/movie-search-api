@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Header from '../components/Header';
 import './App.css';
 
 function App() {
@@ -33,55 +34,55 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-green-300 m-10 font-gaba rounded-2xl p-5">
-      {/* CARD CONTAINER */}
-      <div className="bg-white w-full max-w-2xl rounded-2xl shadow-amber-900 p-6 md:p-10 text-center">
-        
-        <h1 className="font-extrabold text-3xl md:text-5xl my-5 text-black ">
-          <span className="text-red-600 underline decoration-wavy decoration-red-600 decoration-4 underline-offset-4">
-            Movie 
-          </span> 
-           {''} Search API
-        </h1>
+    <div className='min-h-screen bg-gray-50'>
+      <Header />
 
-        {/* INPUT + BUTTON */}
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-6">
-          <input
-            type="text"
-            className="p-3 w-full md:w-2/3 bg-slate-800 text-white rounded-lg outline-none focus:ring-2 focus:ring-yellow-400 transition"
-            placeholder="Enter a movie title"
-            onChange={(e) => setTt(e.target.value)}
-            value={tt}
-          />
-          <button
-            onClick={fetchMovie}
-            class="btn btn-outline btn-primary"
-          >
-            Search
-          </button>
-        </div>
-
-        {/* MOVIE DATA */}
-        {movie && (
-          <div className="mt-10 text-black flex flex-col items-center">
-            <h3 className="text-2xl md:text-3xl font-bold">{movie.Title}</h3>
-            <p className="mt-2 text-lg">🎬 Director: {movie.Director}</p>
-            <p>⭐ Rating: {movie.imdbRating}</p>
-            <p>📅 Year: {movie.Year}</p>
-            <p className='text-black-600 bg-green-300 p-2 rounded-xl px-5 font-bold '> Actors: {movie.Actors} </p>
-            <img
-              src={movie.Poster}
-              alt={movie.Title}
-              className="mt-5 w-64 md:w-80 rounded-xl shadow-md"
-            />
+      <div className='px-8 py-16 flex justify-center'>
+        <div className='w-full max-w-3xl space-y-8'>
+          <div className='bg-white p-10 rounded-lg shadow-sm border border-gray-200'>
+            <h1 className='font-bold text-3xl lg:text-4xl md:text-4xl text-center text-gray-900 mb-8'>
+              Movie Search
+            </h1>
+            <div className='space-y-4'>
+              <input
+                className='w-full bg-gray-100 p-3 rounded border border-gray-300 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400'
+                type="text"
+                placeholder="Enter a movie title"
+                onChange={(e) => setTt(e.target.value)}
+                value={tt}
+              />
+              <button className='w-full btn bg-gray-800 text-white hover:bg-gray-900 border-0' onClick={fetchMovie}>
+                Search
+              </button>
+            </div>
           </div>
-        )}
-      </div>
 
-      {/* FOOTNOTE / OUTSIDE TEXT */}
-      <p className="mt-10 text-white font-medium text-center text-sm md:text-base">
-        Built with ❤️ using React + Tailwind + OMDb API
-      </p>
+          {movie && (
+            <div className='bg-white p-8 rounded-lg shadow-sm border border-gray-200'>
+              <div className='text-center'>
+                <h3 className='text-2xl font-bold text-gray-900 mb-4'>{movie.Title}</h3>
+                {movie.Poster && movie.Poster !== 'N/A' && (
+                  <img
+                    src={movie.Poster}
+                    alt={movie.Title}
+                    className='mx-auto mb-6 rounded shadow-sm max-h-96'
+                  />
+                )}
+                <div className='space-y-2 text-gray-700'>
+                  <p><span className='font-semibold'>Year:</span> {movie.Year}</p>
+                  <p><span className='font-semibold'>Rating:</span> {movie.imdbRating}/10</p>
+                  <p><span className='font-semibold'>Director:</span> {movie.Director}</p>
+                  <p><span className='font-semibold'>Actors:</span> {movie.Actors}</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <p className='text-center text-gray-500 text-sm py-4'>
+            Built using React + OMDb API
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

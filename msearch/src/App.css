@@ -2,7 +2,6 @@
 
 @import "tailwindcss";
 @plugin "daisyui";
-
 @theme{
     --font-barriecito: Barriecito, "sans-serif";
     --font-gaba: Gabarito, "sans-serif";
